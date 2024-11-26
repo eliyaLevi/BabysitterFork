@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-import PageHeader from "../componnets/PageHeader";
+import PageHeader from "../componnets/pageHeader/PageHeader";
 import TopNavLink from "../componnets/TopNavLink";
 
 export const LoginPage = () => {

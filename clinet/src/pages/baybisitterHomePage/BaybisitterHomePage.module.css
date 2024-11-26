@@ -1,0 +1,184 @@
+.page_header {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f7fc;
+  border: 1px solid #e2d9f3;
+  border-radius: 8px;
+  margin: 20px auto;
+  width: 600px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.pageHeader__title {
+  font-size: 2rem;
+  margin: 0;
+  color: #5e3a8c;
+  font-weight: 600;
+}
+
+.pageHeader__subtitle {
+  font-size: 1rem;
+  margin: 5px 0 0;
+  color: #8c7aab;
+  font-weight: 400;
+}
+.user_card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.user_avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #dec2ff;
+}
+.user_card .user_info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.user_card .user_info p {
+  font-size: 0.9rem;
+  color: #555;
+  padding: 10px;
+  background-color: #f9f7fc;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.user_card button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #dec2ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  width: auto;
+}
+
+.user_card button:hover {
+  background-color: #ff9ae6;
+}
+.card_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+@media (max-width: 768px) {
+  .user_card .user_info {
+    grid-template-columns: 1fr;
+  }
+
+  .card_list {
+    grid-template-columns: 1fr;
+  }
+
+  .page_header {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+.status_btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.status_btn.waiting {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status_btn.approved {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status_btn.Done {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status_btn.rejected {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+.status_btn:hover {
+  filter: brightness(95%);
+}
+
+.status_btn {
+  background-color: #dec2ff !important;
+  width: 100% !important;
+  margin-top: 20px !important;
+}
+
+.status_btn:hover {
+  background-color: #ff9ae6 !important;
+}
+
+.status_btn.waiting {
+  background-color: #ffd700 !important;
+  color: black;
+}
+
+.status_btn.approved {
+  background-color: #98fb98 !important;
+  color: black;
+}
+
+.status_btn.Done {
+  background-color: #87ceeb !important;
+  color: black;
+}
+
+.status_btn.rejected {
+  background-color: #ffb6c1 !important;
+  color: black;
+}

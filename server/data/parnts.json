@@ -11,7 +11,7 @@
     "budget": 8000,
     "email": "parnt@example.com",
     "password": "1234",
-    "isAdmin": false
+    "isAdmin": true
   },
   {
     "name": "Shira Golda",

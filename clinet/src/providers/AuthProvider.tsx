@@ -11,6 +11,7 @@ interface UserDTO {
 }
 
 interface AuthContextType {
+  isAdmin: boolean;
   user: IParents | IBabysitter | null;
   error: string | null;
   login: (user: UserDTO, urlPath: string) => Promise<boolean>;
@@ -23,6 +24,7 @@ export const AuthContext = createContext<AuthContextType | null>(null);
 export default function AuthProvider({ children }: { children: ReactNode }) {
   const { POST, VerifyToken } = useFetch("http://localhost:7700");
   const [user, setUser] = useState<IParents | IBabysitter | null>(null);
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   const navigate = useNavigate();
@@ -93,6 +95,9 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         console.error("Invalid response:", response);
         throw new Error("Invalid response from server");
       }
+      if (response.foundUser.isAdmin === "true") {
+        setIsAdmin(true);
+      }
 
       setUser(response.foundUser);
 
@@ -130,7 +135,9 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, error, login, logout, clearError }}>
+    <AuthContext.Provider
+      value={{ isAdmin, user, error, login, logout, clearError }}
+    >
       {children}
     </AuthContext.Provider>
   );

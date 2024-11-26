@@ -3,7 +3,7 @@ import useFetch from "../hooks/useFetch";
 import IBabysitter from "../interface/BabySitter";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import PageHeader from "./PageHeader";
+import PageHeader from "./pageHeader/PageHeader";
 import TopNavLink from "./TopNavLink";
 
 export const EditBabysitter = () => {

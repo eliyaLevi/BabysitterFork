@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../providers/AuthProvider";
+import { AuthContext } from "../../providers/AuthProvider";
 import { NavLink } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
-import IBabysitter from "../interface/BabySitter";
+import useFetch from "../../hooks/useFetch";
+import IBabysitter from "../../interface/BabySitter";
+import styles from "./BaybisitterHomePage.module.css";
 
 interface IOrder {
   status: string;
@@ -49,21 +50,23 @@ export const BaybisitterHomePage = () => {
 
   return (
     <>
-      <div className="page-header">
-        <h1 className="page-header__title">Welcome, {userBabysitter?.name}</h1>
-        <p className="page-header__subtitle">
+      <div className={styles.page_header}>
+        <h1 className={styles.pageHeader__title}>
+          Welcome, {userBabysitter?.name}
+        </h1>
+        <p className={styles.pageHeader__subtitle}>
           Manage your babysitting profile and orders
         </p>
       </div>
 
-      <div className="user-card">
+      <div className={styles.user_card}>
         <img
           src={userBabysitter?.image || "/default-avatar.png"}
           alt={userBabysitter?.name}
-          className="user-avatar"
+          className={styles.user_avatar}
         />
         <h2>{userBabysitter?.name}</h2>
-        <div className="user-info">
+        <div className={styles.user_info}>
           <p>Age: {userBabysitter?.age}</p>
           <p>Address: {userBabysitter?.address}</p>
           <p>Phone: {userBabysitter?.phone}</p>
@@ -80,15 +83,17 @@ export const BaybisitterHomePage = () => {
         </NavLink>
       </div>
 
-      <div className="page-header">
-        <h2 className="page-header__title">Your Orders</h2>
-        <p className="page-header__subtitle">Manage your current orders</p>
+      <div className={styles.page_header}>
+        <h2 className={styles.pageHeader__title}>Your Orders</h2>
+        <p className={styles.pageHeader__subtitle}>
+          Manage your current orders
+        </p>
       </div>
 
-      <div className="card-list">
+      <div className={styles.card_list}>
         {orders.length > 0 ? (
           orderToBabysitter?.map((order) => (
-            <div className="user-card" key={order.parent_id}>
+            <div className={styles.user_card} key={order.parent_id}>
               <h2>Order Details</h2>
               <p>Status: {order.status}</p>
               <p>Babysitter ID: {order.babysitter_id}</p>
@@ -96,7 +101,7 @@ export const BaybisitterHomePage = () => {
               <p>Working Hours: {order.number_working}</p>
               <button
                 onClick={() => statusUpdate(order.parent_id)}
-                className={`status-btn ${order.status}`}
+                className={`${styles.status_btn} ${order.status}`}
               >
                 Update Status
               </button>
